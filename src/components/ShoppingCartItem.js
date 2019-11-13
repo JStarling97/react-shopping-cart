@@ -1,18 +1,19 @@
-import React from 'react';
+import React from "react";
 
 const Item = props => {
-	return (
-		<div className="shopping-cart_item">
-			<img src={props.image} alt={`${props.title} book`} />
+  console.log(props.product); // <=== UNDEFINED?
+  return (
+    <div className="shopping-cart_item">
+      <img src={props.image} alt={`${props.title} book`} />
 
+      <div>
+        <h1>{props.title}</h1>
+        <p>$ {props.price}</p>
 
-			<div>
-				<h1>{props.title}</h1>
-				<p>$ {props.price}</p>
-				<button>Remove from cart</button>
-			</div>
-		</div>
-	);
+        <button onClick={() => props.removeItem(props.id)}>Remove Item</button>
+      </div>
+    </div>
+  );
 };
 
 export default Item;
